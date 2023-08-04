@@ -29,8 +29,8 @@ runtime: php
 env: flex
 
 runtime_config:
-    operating_system: "ubuntu22"
-    runtime_version: "8.2"
+    operating_system: "ubuntu18"
+    runtime_version: "8.1"
 
 skip_files: 
   - .env 

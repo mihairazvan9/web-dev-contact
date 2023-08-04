@@ -31,6 +31,7 @@ env: flex
 runtime_config:
     operating_system: "ubuntu18"
     runtime_version: "8.1"
+    document_root: .
 
 skip_files: 
   - .env 

@@ -1,3 +1,14 @@
+# steps:
+#   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#     entrypoint: 'bash'
+#     args:
+#       - '-c'
+#       - |
+#         gcloud config set app/cloud_build_timeout 3600 \
+#         && gcloud app deploy -q --promote -v=$BUILD_ID \
+#         --project=$PROJECT_ID
+
+# timeout: '3600s'
 steps:
   # Step 1: Set up environment variables
   - name: 'gcr.io/cloud-builders/gcloud'
@@ -5,11 +16,9 @@ steps:
     args: 
       - '-c'
       - |
-        echo "export APP_KEY=your_app_key" >> $BASH_ENV
-        echo "export APP_ENV=production" >> $BASH_ENV
-        echo "export APP_DEBUG=false" >> $BASH_ENV
-        echo "export APP_URL=your_app_url" >> $BASH_ENV
-        source $BASH_ENV
+        gcloud config set app/cloud_build_timeout 3600 \
+        && gcloud app deploy -q --promote -v=$BUILD_ID \
+        --project=$PROJECT_ID
         
   # Step 2: Checkout the source code
   - name: 'gcr.io/cloud-builders/git'

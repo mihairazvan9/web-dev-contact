@@ -1,0 +1,1 @@
+Olaaa Email:{{ $email }} content- {{$content}} / name -{{ $name }} 

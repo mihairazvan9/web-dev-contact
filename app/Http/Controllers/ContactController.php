@@ -18,7 +18,7 @@ class ContactController extends Controller
     {
         try {
             $data = $request->validated();
-            Mail::to($data['email'])->send(new ContactMail(...array_values($data)));
+            Mail::to('97.mihairazvan@gmail.com')->send(new ContactMail(...array_values($data)));
             return response()->json(['message' => 'E-mail sent successfully!']);
         } catch (\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 500);
